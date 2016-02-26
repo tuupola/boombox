@@ -1,0 +1,39 @@
+{
+    "name": "tuupola/boombox",
+    "description": "Beacon for Boomerang",
+    "keywords": [
+        "psr-7",
+        "beacon",
+        "boomerang",
+        "statsd"
+    ],
+    "homepage": "https://github.com/tuupola/boombox",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mika Tuupola",
+            "email": "tuupola@appelsiini.net",
+            "homepage": "http://www.appelsiini.net/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php" : ">=5.4.0",
+        "domnikl/statsd": "^2.3",
+        "tuupola/witchcraft": "^0.3.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Boombox\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Boombox\\Test\\": "tests"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.2",
+        "squizlabs/php_codesniffer": "^2.5"
+    }
+}
