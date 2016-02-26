@@ -32,17 +32,17 @@ class StatsdAdapterTest extends \PHPUnit_Framework_TestCase
         $adapter = new StatsdAdapter($statsd);
 
         $metrics = [
-            new Timing(200),
-            new Timing(123),
-            new Gauge(91233)
+            "foo.bar" => new Timing(200),
+            "foo.pop" => new Timing(123),
+            "foo.com" => new Gauge(91233)
         ];
 
         $adapter->send($metrics);
         $messages = $connection->getMessages();
 
-        $this->assertEquals("test.namespace.0:200|ms", $messages[0]);
-        $this->assertEquals("test.namespace.1:123|ms", $messages[1]);
-        $this->assertEquals("test.namespace.2:91233|g", $messages[2]);
+        $this->assertEquals("test.namespace.foo.bar:200|ms", $messages[0]);
+        $this->assertEquals("test.namespace.foo.pop:123|ms", $messages[1]);
+        $this->assertEquals("test.namespace.foo.com:91233|g", $messages[2]);
 
     }
 }

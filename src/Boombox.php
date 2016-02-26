@@ -20,15 +20,22 @@ use Boombox\Mapper\Boomerang;
 class Boombox
 {
     use \Witchcraft\Hydrate;
+    use \Witchcraft\MagicProperties;
     use \Witchcraft\MagicMethods;
 
     private $options = [
-        "mapper" => null
+        "mapper" => null,
+        "adapter" => null
     ];
 
     public function __construct($options)
     {
         $this->hydrate($options);
+    }
+
+    public function send()
+    {
+        $this->adapter->send($this->mapper->transform());
     }
 
     public function setMapper($mapper)
@@ -40,5 +47,16 @@ class Boombox
     public function getMapper()
     {
         return $this->options["mapper"];
+    }
+
+    public function setAdapter($adapter)
+    {
+        $this->options["adapter"] = $adapter;
+        return $this;
+    }
+
+    public function getAdapter()
+    {
+        return $this->options["adapter"];
     }
 }
