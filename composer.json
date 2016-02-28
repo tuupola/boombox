@@ -20,7 +20,8 @@
     "require": {
         "php" : ">=5.4.0",
         "domnikl/statsd": "^2.3",
-        "tuupola/witchcraft": "^0.3.0"
+        "tuupola/witchcraft": "^0.3.0",
+        "influxdb/influxdb-php": "^1.2"
     },
     "autoload": {
         "psr-4": {
