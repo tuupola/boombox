@@ -15,7 +15,7 @@
 
 namespace Boombox\InfluxDB;
 
-use InfluxDB\Client;
+use InfluxDB\Database;
 
 class Adapter
 {
@@ -26,7 +26,7 @@ class Adapter
         "client" => null
     ];
 
-    public function __construct(Client $client)
+    public function __construct(Database $client)
     {
         $this->setClient($client);
     }
@@ -35,10 +35,10 @@ class Adapter
     {
         return $this
                 ->client
-                ->writePoints($points, Database::PRECISION_SECONDS);
+                ->writePoints($points);
     }
 
-    public function setClient(Client $client)
+    public function setClient(Database $client)
     {
         $this->options["client"] = $client;
         return $this;
