@@ -34,6 +34,7 @@ class Boomerang
     public function setInput($input)
     {
         parse_str($input, $this->options["input"]);
+        $this->options["input"] = array_map("intval", $this->options["input"]);
         return $this;
     }
 
