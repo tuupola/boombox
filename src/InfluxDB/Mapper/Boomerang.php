@@ -23,7 +23,9 @@ class Boomerang
     use \Witchcraft\MagicMethods;
 
     private $options = [
-        "input" => null
+        "input" => null,
+        "tags.default" => [],
+        "tags.include" => []
     ];
 
     public function __construct($options)
@@ -31,10 +33,37 @@ class Boomerang
         $this->hydrate($options);
     }
 
+    public function setTagsDefault(array $tags)
+    {
+        $this->options["tags.default"] = $tags;
+    }
+
+    public function setTagsInclude(array $tags)
+    {
+        $this->options["tags.include"] = $tags;
+
+    }
+
+    public function getTags()
+    {
+        $tags = array_intersect_key(
+            $this->options["input"],
+            array_flip($this->options["tags.include"])
+        );
+
+        return $tags += $this->options["tags.default"];
+    }
+
     public function setInput($input)
     {
         parse_str($input, $this->options["input"]);
-        $this->options["input"] = array_map("intval", $this->options["input"]);
+        $this->options["input"] = array_map(function($value) {
+            if (is_numeric($value)) {
+                return $value + 0;
+            }
+            return $value;
+        }, $this->options["input"]);
+
         return $this;
     }
 
@@ -46,6 +75,7 @@ class Boomerang
     public function transform()
     {
         $input = $this->getInput();
+        $tags = $this->getTags();
         $points = [];
 
         /* http://www.lognormal.com/boomerang/doc/api/RT.html */
@@ -65,7 +95,7 @@ class Boomerang
             $points[] = new Point(
                 "roundtrip",
                 null,
-                [],
+                $tags,
                 $roundtrip,
                 null
             );
@@ -109,7 +139,7 @@ class Boomerang
             $points[] = new Point(
                 "navtiming",
                 null,
-                [],
+                $tags,
                 $navtiming,
                 null
             );
@@ -129,7 +159,7 @@ class Boomerang
             $points[] = new Point(
                 "memory",
                 null,
-                [],
+                $tags,
                 $memory,
                 null
             );

@@ -25,7 +25,7 @@ class Boombox
 
     private $options = [
         "mapper" => null,
-        "adapter" => null
+        "adapter" => null,
     ];
 
     public function __construct($options)
