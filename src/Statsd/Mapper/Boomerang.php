@@ -13,10 +13,10 @@
  *
  */
 
-namespace Boombox\Mapper;
+namespace Boombox\Statsd\Mapper;
 
-use Boombox\Metric\Timing;
-use Boombox\Metric\Gauge;
+use Boombox\Statsd\Metric\Timing;
+use Boombox\Statsd\Metric\Gauge;
 
 class Boomerang
 {
@@ -52,12 +52,18 @@ class Boomerang
         if (isset($input["t_resp"])) {
             $metrics["roundtrip.firstbyte"] = new Timing($input["t_resp"]);
         }
+        /*
+        if (isset($input["t_page"]) && isset($input["t_resp"])) {
+            $metrics["roundtrip.lastbyte"] = new Timing($input["t_page"] + $input["t_resp"]);
+        }
+        */
         if (isset($input["t_page"])) {
             $metrics["roundtrip.lastbyte"] = new Timing($input["t_page"]);
         }
         if (isset($input["t_done"])) {
             $metrics["roundtrip.loadtime"] = new Timing($input["t_done"]);
         }
+
         if (isset($input["nt_unload_end"]) && isset($input["nt_unload_st"])) {
             $metrics["navtiming.unload"] = new Timing($input["nt_unload_end"] - $input["nt_unload_st"]);
         }

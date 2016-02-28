@@ -13,16 +13,16 @@
  *
  */
 
-namespace Test\Mapper;
+namespace Test\Mapper\Statsd;
 
-use Boombox\Metric\Gauge;
-use Boombox\Metric\Timing;
+use Boombox\Statsd\Metric\Gauge;
+use Boombox\Statsd\Metric\Timing;
 
-use Boombox\Adapter\Statsd as StatsdAdapter;
+use Boombox\Statsd\Adapter as StatsdAdapter;
 use Domnikl\Statsd\Connection\InMemory as InMemoryConnection;
 use Domnikl\Statsd\Client as StatsdClient;
 
-class StatsdAdapterTest extends \PHPUnit_Framework_TestCase
+class AdapterTest extends \PHPUnit_Framework_TestCase
 {
     public function testShouldSendMetrics()
     {

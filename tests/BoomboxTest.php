@@ -16,11 +16,10 @@
 namespace Test;
 
 use Boombox\Boombox;
-use Boombox\Metric\Gauge;
-use Boombox\Metric\Timing;
-
-use Boombox\Adapter\Statsd as StatsdAdapter;
-use Boombox\Mapper\Boomerang as BoomerangMapper;
+use Boombox\Statsd\Metric\Gauge;
+use Boombox\Statsd\Metric\Timing;
+use Boombox\Statsd\Adapter as StatsdAdapter;
+use Boombox\Statsd\Mapper\Boomerang as BoomerangMapper;
 use Domnikl\Statsd\Connection\InMemory as InMemoryConnection;
 use Domnikl\Statsd\Client as StatsdClient;
 
@@ -66,8 +65,8 @@ class BoomboxTest extends \PHPUnit_Framework_TestCase
         $boombox->send();
         $messages = $connection->getMessages();
 
-        $this->assertInstanceOf("Boombox\Mapper\Boomerang", $boombox->mapper());
-        $this->assertInstanceOf("Boombox\Adapter\Statsd", $boombox->adapter());
+        $this->assertInstanceOf("Boombox\Statsd\Mapper\Boomerang", $boombox->mapper());
+        $this->assertInstanceOf("Boombox\Statsd\Adapter", $boombox->adapter());
 
         $this->assertEquals("foo.roundtrip.firstbyte:112|ms", $messages[0]);
         $this->assertEquals("foo.roundtrip.lastbyte:505|ms", $messages[1]);

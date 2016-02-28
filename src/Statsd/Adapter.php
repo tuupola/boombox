@@ -13,11 +13,11 @@
  *
  */
 
-namespace Boombox\Adapter;
+namespace Boombox\Statsd;
 
 use Domnikl\Statsd\Client;
 
-class Statsd
+class Adapter
 {
     use \Witchcraft\Hydrate;
     use \Witchcraft\MagicProperties;

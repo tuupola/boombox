@@ -13,10 +13,10 @@
  *
  */
 
-namespace Test\Mapper;
+namespace Test\Mapper\Statsd;
 
 use Boombox\Boombox;
-use Boombox\Mapper\Boomerang as BoomerangMapper;
+use Boombox\Statsd\Mapper\Boomerang as BoomerangMapper;
 
 class BoomerangMapperTest extends \PHPUnit_Framework_TestCase
 {

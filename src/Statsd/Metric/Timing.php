@@ -13,7 +13,7 @@
  *
  */
 
-namespace Boombox\Metric;
+namespace Boombox\Statsd\Metric;
 
 class Timing
 {
