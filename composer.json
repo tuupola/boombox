@@ -24,7 +24,9 @@
     },
     "require-dev": {
         "domnikl/statsd": "^2.3",
-        "influxdb/influxdb-php": "^1.2"
+        "influxdb/influxdb-php": "^1.2",
+        "phpunit/phpunit": "^4.8",
+        "squizlabs/php_codesniffer": "^2.5"
     },
     "suggest": {
         "influxdb/influxdb-php": "For InfluxDB support",
@@ -39,9 +41,5 @@
         "psr-4": {
             "Boombox\\Test\\": "tests"
         }
-    },
-    "require-dev": {
-        "phpunit/phpunit": "^5.2",
-        "squizlabs/php_codesniffer": "^2.5"
     }
 }
