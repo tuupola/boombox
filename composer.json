@@ -20,9 +20,15 @@
     ],
     "require": {
         "php" : ">=5.4.0",
+        "tuupola/witchcraft": "^1.0"
+    },
+    "require-dev": {
         "domnikl/statsd": "^2.3",
-        "tuupola/witchcraft": "^1.0",
         "influxdb/influxdb-php": "^1.2"
+    },
+    "suggest": {
+        "influxdb/influxdb-php": "For InfluxDB support",
+        "domnikl/statsd": "For StatsD support"
     },
     "autoload": {
         "psr-4": {
