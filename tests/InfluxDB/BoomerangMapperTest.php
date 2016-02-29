@@ -50,10 +50,10 @@ class BoomerangMapperTest extends \PHPUnit_Framework_TestCase
 
         $output = $mapper->transform();
 
-        $rountdtrip = 'roundtrip firstbyte="112",lastbyte="505",loadtime="617"';
+        $rountdtrip = 'roundtrip firstbyte=112i,lastbyte=505i,loadtime=617i';
         $navtiming = 'navtiming unload=0i,redirect=0i,cache=4i,dns=1i,tcp=1i,request=106i,'
                    . 'response=2i,processing=457i,onload=0i,loadtime=616i';
-        $memory = 'memory total="24500000",used="17100000"';
+        $memory = 'memory total=24500000i,used=17100000i';
 
         $this->assertEquals($rountdtrip, (string) $output[0]);
         $this->assertEquals($navtiming, (string) $output[1]);
