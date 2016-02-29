@@ -57,7 +57,7 @@ class Boomerang
     public function setInput($input)
     {
         parse_str($input, $this->options["input"]);
-        $this->options["input"] = array_map(function($value) {
+        $this->options["input"] = array_map(function ($value) {
             if (is_numeric($value)) {
                 return $value + 0;
             }
