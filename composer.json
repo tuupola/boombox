@@ -1,8 +1,9 @@
 {
     "name": "tuupola/boombox",
-    "description": "Beacon for Boomerang",
+    "description": "Beacon toolkit for Boomerang",
     "keywords": [
-        "psr-7",
+        "rum",
+        "influxdb",
         "beacon",
         "boomerang",
         "statsd"
