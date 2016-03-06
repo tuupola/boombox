@@ -20,9 +20,11 @@
     "url": "git+https://github.com/tuupola/boombox.git"
   },
   "keywords": [
-    "Slim",
-    "API",
-    "Skeleton"
+      "rum",
+      "influxdb",
+      "beacon",
+      "boomerang",
+      "statsd"
   ],
   "author": "Mika Tuupola <tuupola@appelsiini.net>",
   "license": "MIT",
